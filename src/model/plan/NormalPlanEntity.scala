@@ -1,10 +1,5 @@
 package model.plan
 
-import model.plan.PlanEntity
-
-/**
- * Created by shiori on 2015/07/08.
- */
 class NormalPlanEntity extends PlanEntity {
   def name = "ノーマルプラン"
   def fee = 5000

@@ -1,10 +1,7 @@
 package model.plan
 
-import model.plan.SmallPlanEntity
+import model.account.AccountEntity
 
-/**
- * Created by shiori on 2015/07/08.
- */
 abstract class PlanEntity {
   def name:String
   def fee:Int
@@ -21,8 +18,9 @@ object PlanEntity {
     }
   }
 
-  def message(plan: PlanEntity) = {
-    "選択したのは%sで月%d円、容量は%sです。".format(plan.name, plan.fee, plan.capacity)
+  def message(plan: PlanEntity, account: AccountEntity) = {
+    val fee = plan.fee - account.discount
+    "選択したのは%sで月%d円、容量は%sです。".format(plan.name, fee, plan.capacity)
   }
 }
 
