@@ -1,4 +1,6 @@
-package model
+package model.plan
+
+import model.plan.PlanEntity
 
 /**
  * Created by shiori on 2015/07/08.
