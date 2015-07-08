@@ -1,6 +1,6 @@
 package controller
 
-import model.{NoPlanException, PlanEntity}
+import model.plan.{NoPlanException, PlanEntity}
 
 import scala.io.Source
 

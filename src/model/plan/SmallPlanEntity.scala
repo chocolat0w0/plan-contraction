@@ -1,4 +1,4 @@
-package model
+package model.plan
 
 /**
  * Created by shiori on 2015/07/08.
