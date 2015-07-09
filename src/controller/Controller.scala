@@ -12,8 +12,10 @@ object Controller {
   def main (args: Array[String]) {
     println("your account? normal/premium")
     val accountStr = Source.stdin.getLines().toSeq.head
+
     println("current plan? small/normal/large(/mega)")
     val currentPlanStr = Source.stdin.getLines().toSeq.head
+
     println("next plan? small/normal/large(/mega)")
     val nextPlanStr = Source.stdin.getLines().toSeq.head
 
@@ -21,6 +23,7 @@ object Controller {
       val account = AccountEntity.entity(accountStr)
       val currentPlan = PlanEntity.entity(currentPlanStr, account)
       val nextPlan = PlanEntity.entity(nextPlanStr, account)
+
       account.say()
       account.changePlan(currentPlan, nextPlan)
       nextPlan.say(account)
