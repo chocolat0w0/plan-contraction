@@ -1,7 +1,7 @@
 package model.account
 
 abstract class AccountEntity {
-  def discount:Int
+  val discount:Int
 }
 
 object AccountEntity {
