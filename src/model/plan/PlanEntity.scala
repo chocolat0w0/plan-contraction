@@ -6,14 +6,28 @@ abstract class PlanEntity {
   val name:String
   val fee:Int
   val capacity:String
+  def isValid(account:AccountEntity):Boolean
 }
 
 object PlanEntity {
-  def entity(str:String) = {
+  def entity(str:String, account:AccountEntity):PlanEntity = {
     str match {
-      case "small" => new SmallPlanEntity
-      case "normal" => new NormalPlanEntity
-      case "large" => new LargePlanEntity
+      case "small" =>
+        val entity = new SmallPlanEntity()
+        entity.isValid(account)
+        entity
+      case "normal" =>
+        val entity = new NormalPlanEntity()
+        entity.isValid(account)
+        entity
+      case "large" =>
+        val entity = new LargePlanEntity()
+        entity.isValid(account)
+        entity
+      case "mega" =>
+        val entity = new MegaPlanEntity()
+        entity.isValid(account)
+        entity
       case _ => throw new NoPlanException
     }
   }
@@ -25,3 +39,4 @@ object PlanEntity {
 }
 
 class NoPlanException extends Exception
+class InvalidPlanException(val message:String) extends Exception

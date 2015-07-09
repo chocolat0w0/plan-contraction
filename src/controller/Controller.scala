@@ -1,7 +1,7 @@
 package controller
 
 import model.account.{NoAccountException, AccountEntity}
-import model.plan.{NoPlanException, PlanEntity}
+import model.plan.{InvalidPlanException, NoPlanException, PlanEntity}
 
 import scala.io.Source
 
@@ -11,14 +11,17 @@ import scala.io.Source
 object Controller {
   def main (args: Array[String]) {
     println("your account? normal/premium")
-    val account = Source.stdin.getLines().toSeq.head
-    println("plan? small/normal/large")
-    val plan = Source.stdin.getLines().toSeq.head
+    val accountStr = Source.stdin.getLines().toSeq.head
+    println("plan? small/normal/large(/mega)")
+    val planStr = Source.stdin.getLines().toSeq.head
+
     try {
-      println(PlanEntity.message(PlanEntity.entity(plan), AccountEntity.entity(account)))
+      val account = AccountEntity.entity(accountStr)
+      println(PlanEntity.message(PlanEntity.entity(planStr, account), account))
     } catch {
       case e:NoPlanException => println("プラン名が間違っています。")
       case e:NoAccountException => println("アカウント名が間違っています。")
+      case e:InvalidPlanException => println(e.message)
       case _ => println("予期せぬエラー")
     }
 
