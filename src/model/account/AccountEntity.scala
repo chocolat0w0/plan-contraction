@@ -2,6 +2,7 @@ package model.account
 
 abstract class AccountEntity {
   val discount:Int
+  def say():Unit
 }
 
 object AccountEntity {

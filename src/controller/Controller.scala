@@ -17,6 +17,7 @@ object Controller {
 
     try {
       val account = AccountEntity.entity(accountStr)
+      account.say()
       println(PlanEntity.message(PlanEntity.entity(planStr, account), account))
     } catch {
       case e:NoPlanException => println("プラン名が間違っています。")
