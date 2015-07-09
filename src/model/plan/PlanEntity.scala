@@ -3,9 +3,9 @@ package model.plan
 import model.account.AccountEntity
 
 abstract class PlanEntity {
-  def name:String
-  def fee:Int
-  def capacity:String
+  val name:String
+  val fee:Int
+  val capacity:String
 }
 
 object PlanEntity {

@@ -1,7 +1,7 @@
 package model.plan
 
 class NormalPlanEntity extends PlanEntity {
-  def name = "ノーマルプラン"
-  def fee = 5000
-  def capacity = "3GB"
+  val name = "ノーマルプラン"
+  val fee = 5000
+  val capacity = "3GB"
 }
