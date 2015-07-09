@@ -1,6 +1,6 @@
 package controller
 
-import model.account.{NoAccountException, AccountEntity}
+import model.account.{InvalidChangePlanException, NoAccountException, AccountEntity}
 import model.plan.{InvalidPlanException, NoPlanException, PlanEntity}
 
 import scala.io.Source
@@ -28,6 +28,7 @@ object Controller {
       case e:NoPlanException => println("プラン名が間違っています。")
       case e:NoAccountException => println("アカウント名が間違っています。")
       case e:InvalidPlanException => println(e.message)
+      case e:InvalidChangePlanException => println(e.message)
       case _ => println("予期せぬエラー")
     }
 
