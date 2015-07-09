@@ -7,6 +7,10 @@ abstract class PlanEntity {
   val fee:Int
   val capacity:String
   def isValid(account:AccountEntity):Boolean
+  def say(account:AccountEntity):Unit = {
+    val total = fee - account.discount
+    println("選択したのは%sで月%d円、容量は%sです。".format(name, total, capacity))
+  }
 }
 
 object PlanEntity {
@@ -30,11 +34,6 @@ object PlanEntity {
         entity
       case _ => throw new NoPlanException
     }
-  }
-
-  def message(plan: PlanEntity, account: AccountEntity) = {
-    val fee = plan.fee - account.discount
-    "選択したのは%sで月%d円、容量は%sです。".format(plan.name, fee, plan.capacity)
   }
 }
 
